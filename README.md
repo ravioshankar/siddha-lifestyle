@@ -1,49 +1,55 @@
-# grout-platform
+# siddha-lifestyle
 
-`grout-platform is a Python-based project that contains multiple applications and tooling for data,
-ML, and "road-ready" experiments.`
+`siddha-lifestyle` is a Python-oriented data and experimentation workspace for exploratory analytics, dataset-backed analysis, and small utility code. The repository currently contains a set of Python source packages, Jupyter notebooks, bundled datasets, and supporting documentation.
 
-## Project structure
+## Repository layout
 
-- `apps/`
-  - `roadready-api/` – backend/API for road-ready features
-  - `roadready-ui/` – frontend/UI for road-ready features (Expo/React Native)
-- `data/` – datasets and data-related assets
-- `notebooks/` – exploration, prototyping, and experiments
-- `src/` – core Python source code and shared libraries
-- `assets/` – images and other static assets
-- `road-ready/` – Python virtual environment and tooling for the road-ready stack
-- `main.py` – main entry point for running grout-platform locally
+```text
+siddha-lifestyle/
+├── data/                     # Public/statistical datasets used by the project
+│   └── covid_19_India/       # India-specific COVID-19 CSV data
+├── docs/                     # Feature documentation and project notes
+├── notebooks/                # Experiment notebooks (for analysis and visualization)
+├── src/                      # Core Python modules and package scaffolding
+│   ├── covid19/              # COVID-19 data/config helpers
+│   ├── mypro/                # Example package/config module
+│   └── utils.py              # Root-level utility imports
+├── assets/                   # Static images and legacy visual assets
+├── environment.yml           # Conda environment specification
+├── main.py                   # Small argparse-based Python entry point
+└── requirements.txt          # Python dependencies for the project
+```
+
+## Project contents
+
+- `src/covid19/india_covid19.py` contains exploratory data-processing and Plotly visualization code for COVID-19 trend analysis.
+- `src/covid19/config.py` exposes dataset state used by the notebooks and analysis scripts.
+- `src/mypro/config.py` is a minimal package/config example.
+- `data/` includes India COVID-19 CSV files and a representative sample dataset.
+- `notebooks/` contains analysis notebooks for exploration and experimentation.
+- `docs/features/` collects notes that describe the evolving feature set and project history.
 
 ## Getting started
 
-### 1. Clone the repo
+### Clone the repository
 
 ```bash
-git clone REPO_URL
-cd grout-platform
+git clone git@github.com:ravioshankar/siddha-lifestyle.git
+cd siddha-lifestyle
 ```
 
-### 2. Create and activate the environment
+### Create a Python environment
 
-You can use **uv**, **conda**, or plain **pip**.
+Use either Conda or a standard virtual environment.
 
-#### Option A: Using uv (recommended)
-
-```bash
-uv venv .venv
-source .venv/bin/activate
-uv pip install -r requirements.txt
-```
-
-#### Option B: Using conda
+#### Using Conda
 
 ```bash
 conda env create -f environment.yml
-conda activate grout-platform
+conda activate base
 ```
 
-#### Option C: Using pip / venv
+#### Using pip/venv
 
 ```bash
 python -m venv .venv
@@ -51,39 +57,16 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3. Run the core Python entrypoint
+### Run the CLI entry point
+
+`main.py` is a lightweight command-line entry point. It accepts a positional argument and optional flags such as `-f`, `-n`, and `-v`.
 
 ```bash
-python main.py
+python main.py --help
+python main.py sample --name demo -v
 ```
-
-(Adjust the command as needed depending on which app you want to run.)
-
-### 4. Run the RoadReady UI app
-
-From the repo root:
-
-```bash
-cd apps/roadready-ui
-npm install        # first time only
-npm start          # or: npm run web / npm run android / npm run ios
-```
-
-Then in the terminal where Expo is running, press:
-- `w` for Web
-- `a` for Android (emulator)
-- `i` for iOS (on macOS)
-
-The web app typically opens at:
-
-```text
-http://localhost:8081
-```
-
-For more detailed UI docs, see the `apps/roadready-ui/START_APP.md` and `SETUP_GUIDE.md` files.
 
 ## Notes
 
-- The legacy "Pungi" naming and assets have been replaced by the new **grout-platform** branding.
-- This README is a starting point; update sections with more detail as the individual apps and
-  services stabilize.
+- This repository is not a packaged application in the usual service/API sense. It is organized as a research and data exploration workspace.
+- The project documentation and naming inside the repository still carries some legacy references from earlier work; the source tree and data files are the main source of truth for current structure.
