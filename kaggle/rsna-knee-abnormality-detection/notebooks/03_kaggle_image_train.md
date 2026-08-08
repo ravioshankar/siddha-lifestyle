@@ -34,8 +34,8 @@ model = timm.create_model("efficientnet_b0", pretrained=True, num_classes=12)
 ## Local smoke test
 
 ```bash
-.venv/bin/python scripts/make_sample_dicoms.py
-.venv/bin/python train_image_baseline.py --cv 5
+uv run python scripts/make_sample_dicoms.py
+uv run python train_image_baseline.py --cv 5
 ```
 
 Record CV in `notes/score_log.md`.

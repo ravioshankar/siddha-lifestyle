@@ -23,10 +23,10 @@ def main() -> int:
     print(f"Project: {PROJECT}")
 
     venv_python = PROJECT / ".venv" / "bin" / "python"
-    print(f"venv python: {'OK' if venv_python.exists() else 'MISSING — run python3 -m venv .venv'}")
+    print(f"uv environment: {'OK' if venv_python.exists() else 'MISSING — run uv venv'}")
 
-    kaggle_json = Path.home() / ".kaggle" / "kaggle.json"
-    print(f"kaggle.json: {'OK' if kaggle_json.exists() else 'MISSING — optional until real download'}")
+    access_token = Path.home() / ".kaggle" / "access_token"
+    print(f"Kaggle access token: {'OK' if access_token.exists() else 'MISSING — optional until real download'}")
 
     from config import TARGET_LABELS, resolve_data_root
 
@@ -36,7 +36,7 @@ def main() -> int:
     missing = [name for name in REQUIRED_CSVS if not (root / name).exists()]
     if missing:
         print(f"CSV status: MISSING {missing}")
-        print("Fix: bash scripts/download_csvs.sh  OR  .venv/bin/python scripts/make_sample_data.py")
+        print("Fix: uv run bash scripts/download_csvs.sh  OR  uv run python scripts/make_sample_data.py")
         return 1
 
     from src.data import (

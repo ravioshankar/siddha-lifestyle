@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Download competition CSVs only (~few MB). Requires ~/.kaggle/kaggle.json
+# Download competition CSVs only (~few MB). Requires ~/.kaggle/access_token
 set -euo pipefail
 cd "$(dirname "$0")/.."
 mkdir -p data/raw
@@ -13,12 +13,12 @@ if [[ -z "$KAGGLE_BIN" ]]; then
   fi
 fi
 
-if [[ ! -f "${HOME}/.kaggle/kaggle.json" ]]; then
-  echo "ERROR: Missing ${HOME}/.kaggle/kaggle.json"
+if [[ ! -f "${HOME}/.kaggle/access_token" ]]; then
+  echo "ERROR: Missing ${HOME}/.kaggle/access_token"
   echo "1. Accept competition rules on Kaggle"
-  echo "2. Account → Create New Token → place kaggle.json in ~/.kaggle/"
+  echo "2. Settings → API → Generate New Token → save it to ~/.kaggle/access_token"
   echo "Meanwhile you can generate local sample CSVs:"
-  echo "  .venv/bin/python scripts/make_sample_data.py"
+  echo "  uv run python scripts/make_sample_data.py"
   exit 1
 fi
 
@@ -35,4 +35,4 @@ for z in data/raw/*.zip; do
 done
 
 echo "Done. CSV files are in data/raw/"
-.venv/bin/python scripts/verify_setup.py
+uv run python scripts/verify_setup.py

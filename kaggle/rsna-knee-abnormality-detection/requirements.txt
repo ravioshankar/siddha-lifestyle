@@ -1,4 +1,4 @@
-kaggle>=1.6
+kaggle>=1.8.3
 numpy>=1.26
 pandas>=2.0
 scikit-learn>=1.4

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Create synthetic competition CSVs for local pipeline development.
 
-Use when ~/.kaggle/kaggle.json is not configured yet, or to smoke-test the
+Use when ~/.kaggle/access_token is not configured yet, or to smoke-test the
 pipeline without downloading the full competition dataset.
 """
 
@@ -178,7 +178,7 @@ def main() -> None:
     print(f"  train: {len(train)} studies ({train[TARGET_LABELS].notna().any(axis=1).sum()} labeled)")
     print(f"  train_series: {len(series)}")
     print(f"  test: {len(test)} (no Report column — mirrors competition)")
-    print("Replace with real data via: bash scripts/download_csvs.sh")
+    print("Replace with real data via: uv run bash scripts/download_csvs.sh")
 
 
 if __name__ == "__main__":

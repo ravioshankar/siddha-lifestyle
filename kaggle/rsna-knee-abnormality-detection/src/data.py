@@ -11,8 +11,8 @@ def _read_csv(path: Path) -> pd.DataFrame:
     if not path.exists():
         raise FileNotFoundError(
             f"Missing {path.name}. Download data first:\n"
-            f"  .\\.venv\\Scripts\\kaggle.exe competitions download "
-            f"-c rsna-knee-abnormality-detection -p {RAW_DATA_DIR.as_posix()}"
+            "  uv run bash scripts/download_csvs.sh\n"
+            f"Expected data directory: {RAW_DATA_DIR.as_posix()}"
         )
     return pd.read_csv(path)
 
