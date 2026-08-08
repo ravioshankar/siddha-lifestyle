@@ -3,8 +3,8 @@
 - [x] `uv` environment at `.venv/` with `requirements.txt`
 - [ ] `~/.kaggle/access_token` (accept competition rules, then create API token)
 - [x] CSVs loadable (`scripts/verify_setup.py` passes)
-  - Currently: **synthetic** sample CSVs from `scripts/make_sample_data.py`
-  - Replace with: `uv run bash scripts/download_csvs.sh`
+  - Currently: real competition CSV metadata (4,407 train studies)
+  - Kaggle authentication must still be fixed before future downloads/submissions
 
 ## Commands
 

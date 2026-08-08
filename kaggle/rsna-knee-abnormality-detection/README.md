@@ -33,7 +33,7 @@ Only a **small subset** of training studies have per-condition labels. The rest 
 
 | File | Description |
 |------|-------------|
-| `train.csv` | One row per study: UID, sex, report text, 12 labels |
+| `train.csv` | One row per study: UID, report text, 12 labels |
 | `train_series.csv` | One row per MRI series: plane, fluid-sensitive, fat suppression |
 | `train_series/` | DICOMs at `train_series/<StudyUID>/<SeriesUID>/*.dcm` |
 | `test.csv` | ~1,300 test study IDs (example set for local dev) |
