@@ -1,0 +1,8 @@
+.venv/
+data/raw/
+data/processed/
+models/
+*.dcm
+*.nii
+*.nii.gz
+*.zip

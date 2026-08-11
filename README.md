@@ -6,11 +6,12 @@
 
 ```text
 siddha-lifestyle/
-├── data/                     # Public/statistical datasets used by the project
-│   └── covid_19_India/       # India-specific COVID-19 CSV data
-├── docs/                     # Feature documentation and project notes
-├── notebooks/                # Experiment notebooks (for analysis and visualization)
+├── .virinchi                 # Personal AI agent
+├── kaggle/                   # Kaggle data science projects & notes
 ├── src/                      # Core Python modules and package scaffolding
+|   ├── notebooks/                # Experiment notebooks (for analysis and visualization)
+|   |    ├── data/                 # Public/statistical datasets used by the project
+│   |    └── covid_19_India/       # India-specific COVID-19 CSV data
 │   ├── covid19/              # COVID-19 data/config helpers
 │   ├── mypro/                # Example package/config module
 │   └── utils.py              # Root-level utility imports
